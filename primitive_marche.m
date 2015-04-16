@@ -12,7 +12,7 @@ y_0 = 0.05; % y à t=0
 z_c = 2; % hauteur du CdM
 g = 9.81;
 Tc = sqrt(z_c/g);
-Tsup = 0.6 % temps d'un appui simple (sur un pied)
+Tsup = 0.6; % temps d'un appui simple (sur un pied)
 Sx = 0.3; % distance en deux pas consécutifs en x
 Sy = 0.2; % distance en les deux pieds
 x_p_0 = x_0*((1-cosh(Tsup/Tc))/(Tc*sinh(Tsup/Tc)))+Sx; % contrainte sur la vitesse pour que x(0) = x(Tsup)

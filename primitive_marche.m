@@ -6,16 +6,16 @@ clf
 clc 
 
 x_0 = 0.05; % x à t=0
-y_0 = 0.05; % y à t=0
+y_0 = -0.05; % y à t=0
 
 % Constantes :
 z_c = 2; % hauteur du CdM
 g = 9.81;
 Tc = sqrt(z_c/g);
-Tsup = 0.6; % temps d'un appui simple (sur un pied)
+Tsup = 0.8; % temps d'un appui simple (sur un pied)
 Sx = 0.3; % distance en deux pas consécutifs en x
 Sy = 0.2; % distance en les deux pieds
-x_p_0 = x_0*((1-cosh(Tsup/Tc))/(Tc*sinh(Tsup/Tc)))+Sx; % contrainte sur la vitesse pour que x(0) = x(Tsup)
+x_p_0 = x_0*((1-cosh(Tsup/Tc))/(Tc*sinh(Tsup/Tc)))+(Sx/(Tc*sinh(Tsup/Tc))); % contrainte sur la vitesse pour que x(0) = x(Tsup)
 y_p_0 = y_0*((1-cosh(Tsup/Tc))/(Tc*sinh(Tsup/Tc))); % contrainte sur la vitesse pour que y(0) = y(Tsup)
 
 kx = 0.1;
@@ -36,12 +36,12 @@ z = kx*x+ky*y+z_c;
 px = x - (z_c/g)*x_pp;
 py = y - (z_c/g)*y_pp;
 
-% hold on
-% figure(1)
-% plot(t, y, 'r+');
-% xlabel('t (s)');
-% ylabel('x (m)');
-% grid on;
+hold on
+figure(1)
+plot(t, y, 'r+');
+xlabel('t (s)');
+ylabel('x (m)');
+grid on;
 % 
 % figure(2)
 % plot(t, x_p, 'r+');

@@ -1,4 +1,4 @@
-function [x_p, y_p, x, y, px, py]=primitive_marche2(tf, x_0, y_0, x_p_0, y_p_0, px, py, Tsup)
+function [x_p, y_p, x, y, px, py, z]=primitive_marche2(tf, x_0, y_0, x_p_0, y_p_0, px, py, Tsup)
 
 % Constantes :
 z_c = 1; % hauteur du CdM

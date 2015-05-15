@@ -40,17 +40,36 @@ y = zeros(1, length(n)+1);
 dx = zeros(1, length(n)+1);
 dy = zeros(1, length(n)+1);
 
-for i=1:1:length(n)
-px = px_precedent + s_x(i);
-py = py_precedent + s_y(i);
-[x_p_1, y_p_1, x_1, y_1, px_precedent, py_precedent] = primitive_marche2(tf, x_0, y_0, x_p_0, y_p_0, px, py, Tsup);
-x_0 = x_1;
-y_0 = y_1;
-x_p_0 = x_p_1;
-y_p_0 = y_p_1;
-x(i+1) = x_0;
-y(i+1) = y_0;
-dx(i+1) = x_p_0;
-dy(i+1) = y_p_0;
-t(i+1) = t(i) + Tsup;
-end
+% for i=1:1:length(n)
+%     if mod(i,2)== 0
+%         %px = px_precedent + s_x(i);
+%         %py = py_precedent + s_y(i);
+%         px = s_x(i);
+%         py = s_y(i);
+%     else
+%         %px = px_precedent + s_x(i);
+%         %py = py_precedent + s_y(i);
+%         px = s_x(i);
+%         py = s_y(i);
+%     end
+% 
+% [x_p_1, y_p_1, x_1, y_1, px_precedent, py_precedent] = primitive_marche2(tf, x_0, y_0, x_p_0, y_p_0, px, py, Tsup);
+% x_0 = x_1;
+% y_0 = y_1;
+% x_p_0 = x_p_1;
+% y_p_0 = y_p_1;
+% x(i+1) = x_0;
+% y(i+1) = y_0;
+% dx(i+1) = x_p_0;
+% dy(i+1) = y_p_0;
+% t(i+1) = t(i) + Tsup;
+% end
+
+
+sx=0.3;% distance entre deux pas sur x
+sy=0.2;% distance entre deux pas sur y
+offset= 0.1;%offset de continuité entre 2 pas
+LIP3D(0, -0.1, sx, -0.1, 0.1, 1)
+LIP3D(0, 0.1, sx, 0.1, -0.1, 2)
+LIP3D(0, -0.1, sx, -0.1, 0.1, 3)
+LIP3D(0, 0.1, sx, 0.1, -0.1, 4)
